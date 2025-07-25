@@ -1,11 +1,14 @@
 package main.java.uce.edu.web.repository.modelo;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,6 +32,8 @@ public class Doctor {
     @ManyToOne
     
 
+    @OneToMany(mappedBy = "doctor")
+    private List<Cita> citas;
 
     ////////////////////////////
 
@@ -64,6 +69,12 @@ public class Doctor {
         this.genero = genero;
     }
 
-    
+    public List<Cita> getCitas() {
+        return citas;
+    }
+
+    public void setCitas(List<Cita> citas) {
+        this.citas = citas;
+    }
 
 }

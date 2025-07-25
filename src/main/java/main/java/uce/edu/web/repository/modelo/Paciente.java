@@ -1,6 +1,7 @@
 package main.java.uce.edu.web.repository.modelo;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,8 +30,8 @@ public class Paciente {
      @Column(name = "paci_fecha_Nacimiento")
      private LocalDateTime fechaNacimiento;
 
-     @OneToMany
-     
+     @OneToMany(mappedBy = "paciente")
+     private List<Cita> citas;
 
      /////////////////////////////////////
 
@@ -66,6 +67,12 @@ public class Paciente {
          this.fechaNacimiento = fechaNacimiento;
      }
 
-     
+     public List<Cita> getCitas() {
+         return citas;
+     }
+
+     public void setCitas(List<Cita> citas) {
+         this.citas = citas;
+     }
 
 }

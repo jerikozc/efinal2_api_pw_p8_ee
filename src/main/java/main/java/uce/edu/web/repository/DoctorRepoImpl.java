@@ -2,7 +2,6 @@ package main.java.uce.edu.web.repository;
 
 import java.util.List;
 
-import org.hibernate.dialect.function.json.MySQLJsonQueryFunction;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;

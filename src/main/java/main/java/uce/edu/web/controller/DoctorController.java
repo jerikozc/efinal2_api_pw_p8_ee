@@ -6,7 +6,9 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import main.java.uce.edu.web.repository.modelo.Doctor;
 import main.java.uce.edu.web.service.IDoctorService;
 
@@ -17,16 +19,14 @@ public class DoctorController {
     private IDoctorService iDoctorService;
 
     @GET
-    @Path("")
-    public List<Doctor> mostrarTodos(String genero) {
+    @Produces("application/json")
+    public List<Doctor> mostrarTodos(@QueryParam("genero") String genero) {
         return this.iDoctorService.mostrarTodos(genero);
     }
 
-
-    @GET
-    @Path("")
+    @POST
+    @Consumes("application/json")
     public void guardar(Doctor doctor) {
         this.iDoctorService.guardar(doctor);
     }
-
 }
